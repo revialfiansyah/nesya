@@ -1,0 +1,1134 @@
+/* =========================================
+   ALONICA — LANY × ASTRONAUT
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    background: #030712;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   SPACE BACKGROUND
+========================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    background:
+    linear-gradient(
+        rgba(3, 7, 18, 0.55),
+        rgba(3, 7, 18, 0.70)
+    ),
+    url("assets/alonicahd.jpg");
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+
+/* =========================================
+   STARS
+========================================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -9;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, white, transparent),
+        radial-gradient(1px 1px at 20% 80%, white, transparent),
+        radial-gradient(2px 2px at 30% 30%, white, transparent),
+        radial-gradient(1px 1px at 40% 70%, white, transparent),
+        radial-gradient(2px 2px at 50% 15%, white, transparent),
+        radial-gradient(1px 1px at 60% 85%, white, transparent),
+        radial-gradient(2px 2px at 70% 40%, white, transparent),
+        radial-gradient(1px 1px at 80% 75%, white, transparent),
+        radial-gradient(2px 2px at 90% 20%, white, transparent),
+        radial-gradient(1px 1px at 95% 60%, white, transparent);
+
+    background-size: 350px 350px;
+
+    opacity: .7;
+
+    animation: starsMove 40s linear infinite;
+}
+
+
+/* =========================================
+   LOGIN PAGE
+========================================= */
+
+.login-page {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+    linear-gradient(
+        rgba(3, 7, 18, 0.55),
+        rgba(3, 7, 18, 0.70)
+    ),
+    url("assets/alonicahd2.jpg");
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+.login-page.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   LOGIN BOX
+========================================= */
+
+.login-box {
+
+    width: 100%;
+
+    max-width: 460px;
+
+    padding: 55px 45px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 41, 59, .75),
+            rgba(15, 23, 42, .55)
+        );
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 80px rgba(79, 70, 229, .18),
+
+        inset 0 1px 0
+        rgba(255,255,255,.08);
+
+    animation: loginAppear 1.2s ease;
+}
+
+
+/* astronaut icon */
+
+.login-heart {
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(255,255,255,.6)
+        );
+
+    animation: astronautFloat 3s ease-in-out infinite;
+}
+
+
+.login-small {
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #a5b4fc;
+
+    margin-bottom: 20px;
+}
+
+
+.login-box h1 {
+
+    font-family: 'DM Serif Display', serif;
+
+    font-size: 48px;
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    color: white;
+
+    margin-bottom: 20px;
+}
+
+
+.login-box h1 span {
+
+    font-style: italic;
+
+    color: #c4b5fd;
+
+    text-shadow:
+        0 0 20px
+        rgba(196,181,253,.3);
+}
+
+
+.login-description {
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    color: #94a3b8;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.input-group {
+
+    text-align: left;
+
+    margin-bottom: 18px;
+}
+
+
+.input-group label {
+
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #94a3b8;
+
+    margin-bottom: 8px;
+}
+
+
+.input-group input {
+
+    width: 100%;
+
+    padding: 15px 17px;
+
+    border: 1px solid rgba(148,163,184,.2);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background:
+        rgba(15,23,42,.7);
+
+    color: white;
+
+    font-family: 'Montserrat', sans-serif;
+
+    transition: .3s;
+}
+
+
+.input-group input::placeholder {
+
+    color: #64748b;
+}
+
+
+.input-group input:focus {
+
+    border-color: #818cf8;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(99,102,241,.12),
+
+        0 0 20px
+        rgba(99,102,241,.12);
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+#login-error {
+
+    min-height: 20px;
+
+    font-size: 11px;
+
+    color: #fda4af;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login-button {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: 1px solid
+        rgba(255,255,255,.15);
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
+
+    color: white;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    box-shadow:
+        0 10px 30px
+        rgba(79,70,229,.25);
+}
+
+
+.login-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(79,70,229,.4);
+}
+
+
+.login-hint {
+
+    margin-top: 30px;
+
+    font-size: 10px;
+
+    color: #64748b;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   MAIN PAGE
+========================================= */
+
+.main-page {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity 1.5s ease;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(3, 7, 18, 0.55),
+            rgba(3, 7, 18, 0.75)
+        ),
+        url("assets/alonicahd.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+}
+
+
+.main-page.show {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =========================================
+   MUSIC BUTTON
+========================================= */
+
+.music-button {
+
+    position: fixed;
+
+    right: 25px;
+
+    top: 25px;
+
+    width: 48px;
+
+    height: 48px;
+
+    z-index: 1000;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(255,255,255,.15);
+
+    background:
+        rgba(15,23,42,.7);
+
+    backdrop-filter: blur(10px);
+
+    color: #c4b5fd;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 25px
+        rgba(99,102,241,.2);
+
+    transition: .3s;
+}
+
+
+.music-button:hover {
+
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 35px
+        rgba(129,140,248,.4);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    overflow: hidden;
+}
+
+
+/* glowing moon */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #e0e7ff,
+            #818cf8 35%,
+            #312e81 65%,
+            transparent 70%
+        );
+
+    opacity: .18;
+
+    filter: blur(2px);
+
+    animation:
+        moonFloat 8s ease-in-out infinite;
+}
+
+
+.hero::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    top: 18%;
+
+    left: 15%;
+
+    color: white;
+
+    font-size: 22px;
+
+    text-shadow:
+        0 0 15px white;
+
+    animation:
+        starPulse 2s infinite;
+}
+
+
+.hero > * {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.small-title {
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color: #a5b4fc;
+
+    margin-bottom: 25px;
+}
+
+
+.hero h1 {
+
+    font-family: 'DM Serif Display', serif;
+
+    font-size: clamp(
+        55px,
+        9vw,
+        110px
+    );
+
+    font-weight: 400;
+
+    line-height: .92;
+
+    color: #f8fafc;
+
+    text-shadow:
+        0 0 40px
+        rgba(255,255,255,.08);
+}
+
+
+.hero h1 span {
+
+    color: #c4b5fd;
+
+    font-style: italic;
+
+    text-shadow:
+        0 0 30px
+        rgba(196,181,253,.35);
+}
+
+
+.date {
+
+    margin-top: 30px;
+
+    font-size: 11px;
+
+    letter-spacing: 6px;
+
+    color: #64748b;
+}
+
+
+.scroll {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #64748b;
+
+    animation:
+        floating 2s infinite;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+
+    padding: 120px 20px;
+
+    position: relative;
+}
+
+
+.paper {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    padding: 65px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,41,59,.65),
+            rgba(15,23,42,.5)
+        );
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid
+        rgba(255,255,255,.1);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.3),
+
+        0 0 60px
+        rgba(79,70,229,.08);
+}
+
+
+.chapter {
+
+    font-size: 9px;
+    justify { text-align: justify;}
+    letter-spacing: 5px;
+    color: #818cf8;
+    margin-bottom: 20px;
+}
+
+
+.paper h2 {
+
+    font-family: 'DM Serif Display', serif;
+
+    font-size: 50px;
+
+    font-weight: 400;
+
+    color: white;
+
+    margin-bottom: 35px;
+}
+
+
+.paper p {
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    margin-bottom: 20px;
+
+    color: #94a3b8;
+}
+
+
+.paper .love {
+
+    font-family: 'DM Serif Display', serif;
+
+    font-size: 23px;
+
+    color: #c4b5fd;
+
+    text-shadow:
+        0 0 20px
+        rgba(196,181,253,.25);
+
+    margin-top: 30px;
+}
+
+
+.signature {
+
+    text-align: right;
+
+    font-style: italic;
+
+    color: #64748b !important;
+
+    margin-top: 40px;
+}
+
+
+/* =========================================
+   MEMORIES
+========================================= */
+
+.memories {
+
+    padding: 120px 20px;
+
+    text-align: center;
+}
+
+
+.memories h2 {
+
+    font-family: 'DM Serif Display', serif;
+
+    font-size: 55px;
+
+    font-weight: 400;
+
+    color: white;
+
+    margin-bottom: 60px;
+}
+
+
+.gallery {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+.photo {
+
+    padding: 8px;
+
+    background:
+        rgba(30,41,59,.7);
+
+    border: 1px solid
+        rgba(255,255,255,.1);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.3);
+
+    transition: .5s;
+}
+
+
+.photo:hover {
+
+    transform:
+        translateY(-12px)
+        rotate(0deg)
+        scale(1.03);
+
+    box-shadow:
+        0 30px 70px
+        rgba(79,70,229,.25);
+}
+
+
+.photo img {
+
+    width: 100%;
+
+    height: 350px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 7px;
+}
+
+
+.photo1 {
+
+    transform: rotate(-4deg);
+}
+
+
+.photo2 {
+
+    transform: rotate(3deg);
+}
+
+
+.photo3 {
+
+    transform: rotate(-2deg);
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final {
+
+    min-height: 90vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    position: relative;
+}
+
+
+.final::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(99,102,241,.15);
+
+    filter: blur(80px);
+}
+
+
+.heart {
+
+    position: relative;
+
+    font-size: 65px;
+
+    color: #c4b5fd;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(196,181,253,.5)
+        );
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+
+.final h2 {
+
+    position: relative;
+
+    font-family: 'DM Serif Display', serif;
+
+    font-size: 80px;
+
+    font-weight: 400;
+
+    color: white;
+
+    margin-top: 20px;
+}
+
+
+.final p {
+
+    position: relative;
+
+    color: #94a3b8;
+
+    margin-top: 10px;
+}
+
+
+.final-love {
+
+    font-family: 'DM Serif Display', serif;
+
+    font-size: 27px;
+
+    color: #c4b5fd !important;
+
+    text-shadow:
+        0 0 20px
+        rgba(196,181,253,.3);
+
+    margin-top: 30px !important;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    padding: 35px;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    color: #475569;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes floating {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+
+@keyframes astronautFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(3deg);
+    }
+}
+
+
+@keyframes moonFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+
+@keyframes starPulse {
+
+    0%, 100% {
+        opacity: .3;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-350px);
+    }
+}
+
+
+@keyframes loginAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .hero::before {
+        width: 280px;
+        height: 280px;
+    }
+
+    .paper {
+        padding: 40px 25px;
+    }
+
+    .paper h2 {
+        font-size: 40px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+    }
+
+    .photo img {
+        height: 400px;
+    }
+
+    .photo1,
+    .photo2,
+    .photo3 {
+        transform: none;
+    }
+
+    .memories h2 {
+        font-size: 42px;
+    }
+
+    .final h2 {
+        font-size: 55px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .login-box {
+        padding: 45px 25px;
+    }
+
+    .login-box h1 {
+        font-size: 37px;
+    }
+}
